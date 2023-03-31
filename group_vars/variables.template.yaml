@@ -1,0 +1,18 @@
+variables:
+  - name: ibmcloud_api_key
+    type: string
+    description: The IBM Cloud api key
+    sensitive: true
+  - name: resource_group_name
+    type: string
+    description: The name of the resource group
+  - name: region
+    type: string
+  - name: common_tags
+    type: list(string)
+    description: Common tags that should be added to the instance
+    value: []
+  - name: ibm-vpc-subnets__count
+    type: number
+    description: The number of subnets that should be provisioned
+    value: 3

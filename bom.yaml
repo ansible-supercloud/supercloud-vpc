@@ -1,0 +1,34 @@
+apiVersion: cloudnativetoolkit.dev/v1alpha1
+kind: BillOfMaterial
+metadata:
+  name: ibm-vpc
+  annotations: {}
+spec:
+  modules:
+    - name: ibm-resource-group
+      alias: resource_group
+      version: v3.3.5
+    - name: ibm-vpc
+      alias: ibm-vpc
+      version: v1.17.1
+    - name: ibm-vpc-subnets
+      alias: ibm-vpc-subnets
+      version: v1.14.0
+  variables:
+    - name: ibmcloud_api_key
+      type: string
+      description: The IBM Cloud api key
+      sensitive: true
+    - name: resource_group_name
+      type: string
+      description: The name of the resource group
+    - name: region
+      type: string
+    - name: common_tags
+      type: list(string)
+      description: Common tags that should be added to the instance
+      value: []
+    - name: ibm-vpc-subnets__count
+      type: number
+      description: The number of subnets that should be provisioned
+      value: 3
